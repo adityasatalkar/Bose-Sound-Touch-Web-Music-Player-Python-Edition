@@ -2,6 +2,7 @@ const playButton = document.getElementById('play-song');
 const pauseButton = document.getElementById('pause-song');
 const nextSongButton = document.getElementById('next-song');
 const prevSongButton = document.getElementById('prev-song');
+const sender = "Gabbo"
 
 var slider = document.getElementById("volume-range");
 var output = document.getElementById("volume-level");
@@ -67,8 +68,6 @@ function getData(endpoint, element1) {
                 titledata = doc.getElementsByTagName(element1)[0].getElementsByTagName('track')[0].firstChild.nodeValue;
                 document.getElementById("title").innerHTML = titledata;
                 //display itemName to display device Name
-                titledata = doc.getElementsByTagName(element1)[0].getElementsByTagName('track')[0].firstChild.nodeValue;
-                document.getElementById("title").innerHTML = titledata;
                 artistdata = doc.getElementsByTagName(element1)[0].getElementsByTagName('artist')[0].firstChild.nodeValue;
                 document.getElementById("artist").innerHTML = artistdata;
                 itemName = doc.getElementsByTagName(element1)[0].getElementsByTagName('itemName')[0].firstChild.nodeValue;
@@ -132,7 +131,6 @@ function bluetooth() {
 
 function power() {
     var state = "press"
-    var sender = "Gabbo"
     var key = "POWER"
     console.log(key)
     var bodyOfRequest = apis.boseSoundTouch.getKeyUrlBody(state,sender,key)
@@ -152,7 +150,6 @@ const playSong = () => {
     // <key state="press" sender="Gabbo">PLAY</key>
     console.log('playSong');
     var state = "press"
-    var sender = "Gabbo"
     var key = "PLAY"
     var bodyOfRequest = apis.boseSoundTouch.getKeyUrlBody(state,sender,key)
     apiCall('key', bodyOfRequest)
@@ -163,7 +160,6 @@ const pauseSong = () => {
     // <key state="press" sender="Gabbo">PAUSE</key>
     console.log('pauseSong');
     var state = "press"
-    var sender = "Gabbo"
     var key = "PAUSE"
     var bodyOfRequest = apis.boseSoundTouch.getKeyUrlBody(state,sender,key)
     apiCall('key', bodyOfRequest)
@@ -174,7 +170,6 @@ const nextSong = () => {
     // <key state="press" sender="Gabbo">NEXT_TRACK</key>
     console.log('nextSong');
     var state = "press"
-    var sender = "Gabbo"
     var key = "NEXT_TRACK"
     var bodyOfRequest = apis.boseSoundTouch.getKeyUrlBody(state,sender,key)
     apiCall('key', bodyOfRequest)
@@ -185,7 +180,6 @@ const prevSong = () => {
     // <key state="press" sender="Gabbo">PREV_TRACK</key>
     console.log('prevSong');
     var state = "press"
-    var sender = "Gabbo"
     var key = "PREV_TRACK"
     var bodyOfRequest = apis.boseSoundTouch.getKeyUrlBody(state,sender,key)
     apiCall('key', bodyOfRequest)
